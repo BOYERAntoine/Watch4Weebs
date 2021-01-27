@@ -5,6 +5,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.watch4weebs.R
+import com.watch4weebs.`class`.Anime
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,5 +18,6 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }*/
+        val fma = Anime(name = "full metal alchemist",id="0", author = "la bosse en fait")
     }
 }
