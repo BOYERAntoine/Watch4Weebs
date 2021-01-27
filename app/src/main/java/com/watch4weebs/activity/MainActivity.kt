@@ -19,5 +19,16 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }*/
         val fma = Anime(name = "full metal alchemist",id="0", author = "la bosse en fait")
+
+        if (savedInstanceState == null) {
+            // 2
+            supportFragmentManager
+                // 3
+                .beginTransaction()
+                // 4
+                .add(R.id.root_layout, AnimeListFragment.newInstance(), "animeList")
+                // 5
+                .commit()
+        }
     }
 }
