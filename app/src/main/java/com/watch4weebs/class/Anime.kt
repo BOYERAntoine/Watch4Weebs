@@ -1,11 +1,9 @@
 package com.watch4weebs.`class`
 
-import java.io.Serializable
-
-data class Anime (
+class Anime (
     val id : String,
     val name: String,
-    val author: String)  : Serializable {
+    val author: String) {
     val description: String = "pas de description"
     val cover: String = "image de base "
 }
