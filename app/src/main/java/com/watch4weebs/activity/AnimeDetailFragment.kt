@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.watch4weebs.R
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -24,7 +26,10 @@ class AnimeDetailFragment : Fragment() {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_anime_detail, container, false)
+        val view = inflater.inflate(R.layout.fragment_anime_detail, container, false)
+        view.findViewById<TextView>(R.id.anime_detail_name).text = arguments?.getString("anime_name")
+        view.findViewById<TextView>(R.id.anime_detail_author).text = arguments?.getString("anime_author")
+        return view
     }
 
 }

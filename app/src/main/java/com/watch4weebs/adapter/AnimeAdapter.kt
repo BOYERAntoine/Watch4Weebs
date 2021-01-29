@@ -1,6 +1,7 @@
 package com.watch4weebs.adapter;
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,8 +44,8 @@ class AnimeAdapter(items: ArrayList<Anime>, ctx: Context) :
 
         //shows how to handle events of views of items
         viewHolder.fav!!.setOnClickListener {
-            Toast.makeText(context, "Clicked fav of " + anime!!.name,
-                Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "Clicked fav of " + anime!!.name, Toast.LENGTH_SHORT).show()
+            Log.d("allo","hello")
         }
         view.tag = viewHolder
 

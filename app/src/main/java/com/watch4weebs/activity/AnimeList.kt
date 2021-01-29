@@ -10,8 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import com.watch4weebs.R
 import com.watch4weebs.`class`.Anime
 import com.watch4weebs.adapter.AnimeAdapter
@@ -44,32 +46,39 @@ class AnimeList : Fragment(){
         lv.adapter = animeAdapter
 
         lv.dividerHeight = 10
-
+        //val pause :ArrayLi st<Anime> = ArrayList<Anime>();
         lv.onItemClickListener = AdapterView.OnItemClickListener {
                 adapterView, view, i, l ->
-            Toast.makeText(activity,
-                "you selected anime " + (i + 1),
-                Toast.LENGTH_LONG).show()
+            navigateToDetails(view)
+
         }
         return view
+    }
+    private fun navigateToDetails(view: View){
+        val bundle = Bundle()
+        bundle.putString("anime_name", view.findViewById<TextView>(R.id.anime_name).text as String?);
+        bundle.putString("anime_author", view.findViewById<TextView>(R.id.anime_author).text as String?);
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        val fragmentTwo = AnimeDetailFragment()
+        fragmentTwo.arguments = bundle
+        transaction?.replace(R.id.root_layout, fragmentTwo)
+        transaction?.addToBackStack(null)
+        transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transaction?.commit()
     }
 
     private fun loadAnimeData() {
         //val newAnimeList = ArrayList<Anime>()
         animeList.add(Anime(name = "One Piece",id="0", author = "Oda"));
-
         animeList.add(Anime(name = "Naruto",id="1", author = "Kishimoto"))
         animeList.add(Anime(name = "Naruto Shippuden",id="1", author = "Kishimoto"))
-
         animeList.add(Anime(name = "Hunter x Hunter",id="2", author = "Togashi"))
-
         animeList.add(Anime(name = "Bleach",id="3", author = "Kubo"))
         animeList.add(Anime(name = "Dragon Ball",id="4", author = "Toriyama"))
         animeList.add(Anime(name = "Dragon Ball Z",id="4", author = "Toriyama"))
         animeList.add(Anime(name = "Dragon Ball Super",id="4", author = "Toriyama"))
         animeList.add(Anime(name = "Dragon Ball GT ",id="4", author = "Toriyama"))
         animeList.add(Anime(name = "full metal alchemist",id="5", author = "la bosse en fait"))
-
     }
 }
 

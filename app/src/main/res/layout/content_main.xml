@@ -9,12 +9,4 @@
     android:gravity="center"
     android:id="@+id/root_layout"
     >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Watch4Weebs"
-        android:textSize="20dp"
-        />
-
 </LinearLayout>

@@ -17,7 +17,9 @@
     android:orientation="horizontal"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:padding="16dp"
-    tools:ignore="MissingConstraints">
+    tools:ignore="MissingConstraints"
+    android:descendantFocusability="blocksDescendants"
+    >
 
     <LinearLayout
         android:layout_width="266dp"
